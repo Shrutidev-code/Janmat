@@ -1,0 +1,188 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Fingerprint Verification</title>
+    
+  </head>
+  <style>
+    #text1{
+        text-align: center;
+        
+    }
+    #con{
+        border: 1px solid green;
+        padding:10px;
+        text-align: center;
+       
+    }
+    #container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  border: 1px solid orange;
+  
+}
+
+#fingerprint-container {
+  width: 300px;
+  height: 300px;
+  margin-top: -50px;
+}
+
+#instructions-container {
+    margin-top: -50px;
+  width: 300px;
+  height:300px;
+  border: 1px ;
+  margin-left: 10px;
+  text-align: center;
+  background-color: gainsboro;
+  padding-top: 10px;;
+}
+
+button {
+  margin-left: 20px;  
+}
+#img1{
+    margin-top: -35px;;
+}
+#img2{
+    height: 100px;
+}
+
+
+  </style>
+  <script>
+    function myclick() {
+      alert("verified");
+    }
+  </script>
+  <body>
+   
+    <div id="con">
+        <img src="./घर जनमत.png" id="img2">
+    <H1 id="text1">
+        Finger Print verification 
+    </H1>
+   
+    <div id="container">
+        
+      <div id="fingerprint-container"></div>
+      <img src="./fingerprint-img.gif" id="img1">
+     
+      <div id="instructions-container">
+        <h2>Instructions</h2>
+        <ol>
+          <li>Place your finger on the scanner.</li>
+          <li>Wait for the scanner to read your fingerprint.</li>
+          <li>Click the Verify button to submit your fingerprint for verification.</li>
+        </ol>
+        <button id="verify-btn" onclick="myclick()">Verify</button>
+      </div>
+    </div>
+    </div>
+    
+   
+   
+   
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fingerprint Verification</title>
+  </head>
+  <style>
+    #text1{
+        text-align: center;
+        
+    }
+    #con{
+        border: 1px solid green;
+        padding:10px;
+        text-align: center;
+       
+    }
+    #container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  border: 1px solid orange;
+  
+}
+
+#fingerprint-container {
+  width: 300px;
+  height: 300px;
+  margin-top: -50px;
+}
+
+#instructions-container {
+    margin-top: -50px;
+  width: 300px;
+  height:300px;
+  border: 1px ;
+  margin-left: 10px;
+  text-align: center;
+  background-color: gainsboro;
+  padding-top: 10px;;
+}
+
+button {
+  margin-left: 20px;  
+}
+#img1{
+    margin-top: -35px;;
+}
+#img2{
+    height: 100px;
+}
+
+
+  </style>
+  <script>
+    function myclick() {
+      alert("verified");
+      window.location.href = "pollBooth/pollBooth.html"; // Replace with the URL of the page you want to open
+    }
+  </script>
+  <body>
+    <div>
+      <!-- HTML content -->
+      <div id="con">
+        <img src="./janmat logo1.png" id="img2">
+    <H1 id="text1">
+        Finger Print verification 
+    </H1>
+   
+    <div id="container">
+        
+      <div id="fingerprint-container"></div>
+      <img src="./fingerprint-img.gif" id="img1">
+     
+      <div id="instructions-container">
+        <h2>Instructions</h2>
+        <ol>
+          <li>Place your finger on the scanner.</li>
+          <li>Wait for the scanner to read your fingerprint.</li>
+          <li>Click the Verify button to submit your fingerprint for verification.</li>
+        </ol>
+        <button id="verify-btn" onclick="myclick()">Verify</button>
+        <a href="../pollBooth/pollBooth.html"><button>skip</button></a>
+      </div>
+    </div>
+    </div>
+    </div>
+    <script>
+      //document.getElementById("verify-btn").addEventListener("click", function () {
+       // alert("Fingerprint verified");
+        //myclick();
+        document.getElementById("verify-btn").addEventListener("click", function () {
+          showDialogue();
+      });
+    </script>
+  </body>
+</html>
+

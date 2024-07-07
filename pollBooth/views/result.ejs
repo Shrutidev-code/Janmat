@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Result of Voting</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333333;
+        }
+
+        .result {
+            font-size: 48px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .back-home {
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Result of Voting</h1>
+        <div class="result">INC : <%= data.c1 %></div>
+        <div class="result">BJP : <%= data.c2 %></div>
+        <div class="result">AITC : <%= data.c3 %></div>
+        <div class="result">BSP : <%= data.c4 %></div>
+        <div class="result">CPI : <%= data.c5 %></div>
+        <div class="result">NCP : <%= data.c6 %></div>
+        <div class="result">NPP : <%= data.c7 %></div>
+        <div class="result">AAP : <%= data.c8 %></div>
+        <a href="" class="back-home">Back to Home</a>
+    </div>
+</body>
+
+</html>

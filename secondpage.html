@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>janmat</title>
+    <link rel="stylesheet" href="rough.css" />
+  </head>
+  <body>
+    <div class="container">
+    <form action="http://localhost:3002/login" method="POST">
+    
+      <!-- <h1>Verify</h1> -->
+      <div class="box">
+        <img src="janmat logo.jpeg" id ="logo_img" alt="Logo" />
+        <div class="input">
+          <label for="aadhar">Aadhaar Card Number:</label>
+          <input type="text" id="aadhar" name="aadhar"/>
+          <span class="icon"></span>
+          <span class="status"></span>
+        </div>
+        <div class="input">
+          <label for="pin">Pin Code:</label>
+          <input type="text" id="pin" name="pin" />
+          <span class="icon"></span>
+          <span class="status"></span>
+        </div>
+        <p class="validation-text"></p>
+       <!-- <a href="facial.html"> <button onclick="myFunction()" id="verify">Verify</button></a> -->
+      <!-- <button onclick="myFunction()" id="verify">Verify</button> -->
+      <input type="submit" value="Login">
+    </div>
+   
+  </form>
+</div>
+    <script src="script11.js"></script>
+    <script src="server.js"></script>
+  </body>
+</html>

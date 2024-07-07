@@ -1,0 +1,116 @@
+<html>
+<head>
+    <title>Facial Recognition</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: sans-serif;
+        }
+        #main {
+            width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #instructions {
+            
+            width: 200px;
+            float: right;
+            padding: 10px;
+            background-color: #e6e6e6;
+        }
+        #camera {
+            width: 600px;
+            float: left;
+            margin-top:-300px;
+            margin-bottom: 10px;
+        }
+        #results {
+           text-align: left;
+            padding: 10px;
+            background-color: #e6e6e6;
+        }
+        #img1{
+height:200px;
+        }
+        #inputs{
+            margin-top:20px;
+            text-align: center;
+            font-size:60px;
+        }
+    </style>
+    <script defer src="/face-api.min.js"></script>
+    <script  defer src="/face.js"></script>
+</head>
+<body>
+    <div id="main">
+        <h1>PLEASE BE STEADY..</h1>
+        <div id="instructions">
+            <img src="./labels/janmatlogo.png" id="img1">
+            <h2>Instructions</h2>
+            <p>1. Look into the camera</p>
+            <p>2. Enter your name in
+            the box below</p>
+            <p>3. Click the 
+            Recognize button</p>
+        </div>
+        <div id="camera">
+            <video id="video" width="600" height="400" margin-top="0px"></video>
+            <br>
+            <div id="inputs">
+            <input type="text" id="name" placeholder="Name">
+            <input type="button" id="start" value="Start">
+            <input type="button" id="recognize" value="Recognize">
+        </div>
+        </div>
+        <div id="results">
+            <h2>Results</h2>
+            <p>Name: <span id="output"></span></p>
+        </div>
+    </div>
+    <script>
+       
+        const start = document.getElementById('start');
+        const recognize = document.getElementById('recognize');
+        const name = document.getElementById('name');
+        const output = document.getElementById('output');
+
+        // Start video stream
+        start.addEventListener('click', () => {
+            navigator.mediaDevices
+                .getUserMedia({ video: true, audio: false })
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.play();
+                });
+        });
+
+        // Recognize face
+        recognize.addEventListener('click', () => {
+            if (name.value == '') {
+                output.innerHTML = 'Please enter your name';
+            } else {
+                output.innerHTML = 'Recognizing face...';
+                setTimeout(() => {
+                    output.innerHTML = `Welcome, ${name.value}!`;
+                }, 3000);
+            }
+        });
+        recognize.addEventListener('click', () => {
+        if (name.value == '') {
+            output.innerHTML = 'Please enter your name';
+        } else {
+            output.innerHTML = 'Recognizing face...';
+            setTimeout(() => {
+                const recognizedName = name.value;
+                if (recognizedName === 'Shreshtha' || recognizedName === 'Sanchit') {
+                    window.location.href = 'finger.html'; // Replace 'fingerprint.html' with the actual URL of the next page
+                } else {
+                    alert('Access denied!');
+                    window.location.href = 'index.html'; // Replace 'index.html' with the actual URL of the main page
+                }
+            }, 3000);
+        }
+    });
+    </script>
+</body>
+</html>

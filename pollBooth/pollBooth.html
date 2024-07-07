@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Card Grid Example</title>
+    <style>
+        /* Define styles for the card grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 22fr);
+            gap: 33px;
+            margin-left: 8%;
+        }
+
+        /* Define styles for the cards */
+        .card {
+            background-color: #f1f1f1;
+            text-align: center;
+            cursor: pointer;
+            padding: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+            width: 65%;
+
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card p {
+            margin: 10px;
+        }
+
+        /* Define styles for the popup */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            display: none;
+        }
+
+        .timer {
+            font-size: 3em;
+            font-weight: bold;
+            color: black;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="janmat logo.jpeg" alt="janmat" style="width:80px;margin-left:42%;">
+    <div id="timer" style="margin-left: 50%; font-size: 32px; margin-top:-3%">
+        2:00</div>
+    <br><br><br>
+    <marquee style="color: red">Please cast your vote within 2 minutes</marquee><br><br><br>
+    <div class="card-grid">
+        <div class="card">
+            <img src="download.png"  onclick="showPopup('Card 1')" alt="Card 1">
+            <p>Indian National Congress (INC)</p>
+            <input type="hidden" value="1" id="card1" />
+        </div>
+        <div class="card" onclick="showPopup('Card 2')" id="2" name="b">
+            <img src="BJP_Flag.svg.png" alt="Card 2">
+            <p>Bharatiya Janata Party (BJP)</p>
+            <input type="hidden" value="2" id="card2" />
+        </div>
+        <div class="card" onclick="showPopup('Card 3')" id="3" name="c">
+            <img src="party3.jpg" alt="Card 3">
+            <p>All India Trinamool Congress (AITC)</p>
+            <input type="hidden" value="3" id="card3" />
+        </div>
+        <div class="card" onclick="showPopup('Card 4')" id="4" name="d">
+            <img src="party4.jpeg" alt="Card 4">
+            <p>Bahujan Samaj Party (BSP)</p>
+            <input type="hidden" value="4" id="card4" />
+        </div>
+        <div class="card" onclick="showPopup('Card 5')" id="5" name="e">
+            <img src="party5.jpeg" alt="Card 5">
+            <p>Communist Party of India (CPI)</p>
+            <input type="hidden" value="5" id="card5" />
+        </div>
+        <div class="card" onclick="showPopup('Card 6')" id="6" name="f">
+            <img src="party6.jpeg" alt="Card 6">
+            <p>Nationalist Congress Party (NCP)</p>
+            <input type="hidden" value="6" id="card6" />
+        </div>
+        <div class="card" onclick="showPopup('Card 7')" id="7" name="g">
+            <img src="party6.jpeg" alt="Card 7">
+            <p>National People’s Party (NPP)</p>
+            <input type="hidden" value="7" id="card7" />
+        </div>
+        <div class="card" onclick="showPopup('Card 8')" id="8" name="h">
+            <img src="party8.jpeg" alt="Card 8">
+            <p>Aam Aadmi Party Flag</p>
+            <input type="hidden" value="8" id="card8" />
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <p>Do you want to lock your vote?</p>
+        <button onclick="hidePopup()">No</button>
+        <button onclick="lockVote()" id="valueCard">Yes</button>
+    </div>
+    
+    
+    <script>
+
+        let count1 = 0;
+        let count2 = 0;
+        let count3 = 0;
+        let count4 = 0;
+        let count5 = 0;
+        let count6 = 0;
+        let count7 = 0;
+        let count8 = 0;
+        var option;
+
+        // Show PopUps
+        function showPopup(option1) {
+          document.getElementById("popup").style.display = "block";
+          option = option1;
+        }
+
+        function lockVote(){
+            if(option == "Card 1"){
+            count1++;
+            console.log("INC" + " = " + count1);
+          }
+          else if(option == "Card 2"){
+            count2++;
+            console.log("BJP" + " = " + count2);
+          }
+          else if(option == "Card 3"){
+            count3++;
+            console.log("ATIC" + " = " + count3);
+          }
+          else if(option == "Card 4"){
+            count4++;
+            console.log("BSP" + " = " + count4);
+          }
+          else if(option == "Card 5"){
+            count5++;
+            console.log("BJI" + " = " + count5);
+          }
+          else if(option == "Card 6"){
+            count6++;
+            console.log("NSP" + " = " + count6);
+          }
+          else if(option == "Card 7"){
+            count7++;
+            console.log("NPP" + " = " + count7);
+          }
+          else if(option == "Card 8"){
+            count8++;
+            console.log("AAP" + " = " + count8);
+          }
+          }
+        
+        
+        // hidePopup
+        function hidePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+
+        // TIMER FUNCTION
+        
+        var timeLimit = 120;
+        var timer = document.getElementById("timer");
+        timer.innerHTML = formatTime(timeLimit);
+        var countdown = setInterval(function () {
+            timeLimit--;
+            timer.innerHTML = formatTime(timeLimit);
+            if (timeLimit <= 10) {
+                timer.style.color = "red";
+            }
+            if (timeLimit <= 0) {
+                clearInterval(countdown);
+                window.alert("Voting time is over!");
+            }
+        }, 1000);party8.jpeg
+       
+        function formatTime(time) {
+            var minutes = Math.floor(time / 60);
+            var seconds = time % 60;
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            return minutes + ":" + seconds;
+        }
+
+
+
+
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>
